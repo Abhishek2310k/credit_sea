@@ -9,7 +9,6 @@ interface ModalProps {
 const Modal: React.FC<ModalProps> = ({ isVisible, onClose, children }) => {
   const modalRef = useRef<HTMLDivElement>(null);
 
-  // Close the modal when clicking outside of the modal content
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
@@ -17,14 +16,13 @@ const Modal: React.FC<ModalProps> = ({ isVisible, onClose, children }) => {
       }
     };
 
-    // Only add/remove the event listener when the modal is visible
     if (isVisible) {
       document.addEventListener("mousedown", handleClickOutside);
       return () => document.removeEventListener("mousedown", handleClickOutside);
     }
   }, [isVisible, onClose]);
 
-  // Early return if modal is not visible
+
   if (!isVisible) return null;
 
   return (

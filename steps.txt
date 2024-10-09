@@ -1,2 +1,1 @@
-- change last updated feature 
-- add row for sorting and filtering 
+- add code for login signup to avoid switching the tabs manually

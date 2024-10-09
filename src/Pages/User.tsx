@@ -2,7 +2,6 @@ import { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import Modal from "../Components/Modal";
 import LoanForm from "../Components/LoanForm/LoanForm";
-import LoanList from "../Components/LoanList";
 import Loans from "../Components/Loans";
 const User = () => {
 

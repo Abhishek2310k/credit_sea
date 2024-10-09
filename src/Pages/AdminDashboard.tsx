@@ -19,7 +19,7 @@ const AdminDashboard = () => {
     };
 
     fetchLoans();
-  }, []); // Fetch loans on mount
+  }, []); 
 
   const stats = [
     { label: "Active Users", value: summary[0]?.activeUserCount || 0 },

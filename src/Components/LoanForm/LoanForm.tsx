@@ -6,7 +6,7 @@ const LoanForm = () => {
   const [formData, setFormData] = useState<LoanFormData>({
     fullName: "",
     loanAmount: 0,
-    loanTenure: 0, // Initialize as a number
+    loanTenure: 0,
     employmentStatus: "",
     reasonForLoan: "",
     employmentAddress: "",
@@ -15,12 +15,11 @@ const LoanForm = () => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
 
-    // Update state based on input name
     setFormData((prev) => ({
       ...prev,
       [name]: 
         name === "loanAmount" || name === "loanTenure" 
-          ? (value === "" ? 0 : Number(value)) // Convert to number or set to 0 if empty
+          ? (value === "" ? 0 : Number(value))
           : value,
     }));
   };

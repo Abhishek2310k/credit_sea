@@ -14,26 +14,26 @@ type LayoutProps = {
 function Layout({ children }: LayoutProps) {
   const location = useLocation();
 
-  // Conditionally hide Navbar and Sidebar for "/user" route
+
   const hideNavbarSidebar = location.pathname === "/user";
 
   return (
     <div className="app min-h-screen flex flex-col">
-      {/* Navbar covers the full width in the first row, and it's fixed at the top */}
+
       {!hideNavbarSidebar && (
         <div className="w-full fixed top-0 z-[100]">
           <Navbar />
         </div>
       )}
 
-      {/* Second row: Sidebar (1 column) and content (rest of the space) */}
-      <div className="flex flex-1 mt-[4rem]"> {/* Add margin to account for fixed navbar */}
+ 
+      <div className="flex flex-1 mt-[4rem]"> 
         {!hideNavbarSidebar && (
-          <div className="w-64"> {/* Sidebar width is set to 16rem (64 = 16 * 4px) */}
+          <div className="w-64">
             <Sidebar />
           </div>
         )}
-        <div className="flex-1 p-6">{children}</div> {/* Content takes remaining space */}
+        <div className="flex-1 p-6">{children}</div> 
       </div>
     </div>
   );
