@@ -3,13 +3,15 @@ import { Summary } from "../Interface"
 import axios from "axios"
 import StatCard from "../Components/StatCard"
 import Loans from "../Components/Loans"
+import { api_link } from "../App"
+
 const AdminDashboard = () => {
   const [summary, setSummary] = useState<Summary[]>([]);
 
   useEffect(() => {
     const fetchLoans = async () => {
       try {
-        const response = await axios.get(`http://localhost:4500/api/loans/summary`);
+        const response = await axios.get(api_link + `/api/loans/summary`);
         setSummary(response.data);
       } catch (err: any) {
         console.log(err);

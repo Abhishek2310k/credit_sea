@@ -53,5 +53,5 @@ function App() {
     </Router>
   );
 }
-export let api_link = "http://localhost:4500";
+export let api_link = "https://credit-sea-backend.vercel.app";
 export default App;

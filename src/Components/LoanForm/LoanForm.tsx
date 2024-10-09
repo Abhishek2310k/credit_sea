@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { LoanFormData } from "../../Interface";
 import axios from "axios";
-
+import { api_link } from "../../App";
 const LoanForm = () => {
   const [formData, setFormData] = useState<LoanFormData>({
     fullName: "",
@@ -27,7 +27,7 @@ const LoanForm = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const apiUrl = `http://localhost:4500/api/loan/add`;
+    const apiUrl = api_link + `/api/loan/add`;
     console.log(formData);
     try {
       const response = await axios.post(apiUrl, formData, {

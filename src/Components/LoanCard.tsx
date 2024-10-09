@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { LoanCardProps } from "../Interface";
 import { getRandomName } from "../Utility";
+import { api_link } from "../App";
 // Status color based on loan status
 const getStatusColor = (status: string): string => {
   const statusColors: Record<string, string> = {
@@ -46,7 +47,7 @@ const LoanCard: React.FC<LoanCardProps> = ({ loan, actions, role }) => {
     
     try {
       const officer_name:string = getRandomName();
-      await axios.patch(`http://localhost:4500/api/loans/${role}`, {
+      await axios.patch(api_link + `/api/loans/${role}`, {
         status: updatedStatus,
         loanOfficer: role === "verifier" ? officer_name : undefined,
         _id: loan._id
